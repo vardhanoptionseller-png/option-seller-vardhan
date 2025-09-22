@@ -16,25 +16,25 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "support@optionsellervardhan.com",
-      action: "mailto:support@optionsellervardhan.com"
+      content: "info@optionsellervardhan.com",
+      action: "mailto:info@optionsellervardhan.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+91 98765 43210",
-      action: "tel:+919876543210"
+      content: "+919989063944",
+      action: "tel:+919989063944"
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
       content: "Quick Support",
-      action: "https://wa.me/919876543210"
+      action: "https://wa.me/919989063944"
     },
     {
       icon: MapPin,
       title: "Office",
-      content: "Hyderabad, Telangana",
+      content: "NO 45/3 GOPALA KRISHNA COMPLEX, RESIDENCY ROAD M G ROAD, Bengaluru, Bengaluru Urban, Karnataka, 560025",
       action: "#"
     }
   ];
@@ -42,22 +42,22 @@ const Contact = () => {
   const socialLinks = [
     {
       name: "Telegram",
-      url: "https://t.me/optionsellervardhan",
+      url: "https://web.telegram.org/a/#-1002714310264",
       description: "Join our private trading group"
     },
     {
       name: "Instagram",
-      url: "https://instagram.com/optionsellervardhan",
+      url: "https://www.instagram.com/optionsellervardhan?igsh=NmNnbWRiZ2RpdGNl&utm_source=qr",
       description: "Daily market insights & tips"
     },
     {
       name: "Twitter/X",
-      url: "https://x.com/optionsellervardhan",
+      url: "https://x.com/cavardhanca?s=11&t=XI2ylX8cPcNKHXvjuj2syw",
       description: "Live market commentary"
     },
     {
       name: "Threads",
-      url: "https://threads.net/@optionsellervardhan",
+      url: "https://www.threads.com/@optionsellervardhan?xmt=AQF0zlRRVotOH4mKcd-vbHRjPTKxnvCQhZ6kQz0lkVvpIZ4",
       description: "Market updates & analysis"
     }
   ];

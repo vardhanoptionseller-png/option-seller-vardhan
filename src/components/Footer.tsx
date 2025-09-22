@@ -26,10 +26,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "Telegram", href: "https://t.me/optionsellervardhan" },
-    { name: "Instagram", href: "https://instagram.com/optionsellervardhan" },
-    { name: "Twitter/X", href: "https://x.com/optionsellervardhan" },
-    { name: "Threads", href: "https://threads.net/@optionsellervardhan" }
+    { name: "Telegram", href: "https://web.telegram.org/a/#-1002714310264" },
+    { name: "Instagram", href: "https://www.instagram.com/optionsellervardhan?igsh=NmNnbWRiZ2RpdGNl&utm_source=qr" },
+    { name: "Twitter/X", href: "https://x.com/cavardhanca?s=11&t=XI2ylX8cPcNKHXvjuj2syw" },
+    { name: "Threads", href: "https://www.threads.com/@optionsellervardhan?xmt=AQF0zlRRVotOH4mKcd-vbHRjPTKxnvCQhZ6kQz0lkVvpIZ4" }
   ];
 
   return (
@@ -66,11 +66,11 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <span>support@optionsellervardhan.com</span>
+                <span>info@optionsellervardhan.com</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                <span>+91 98765 43210</span>
+                <span>+919989063944</span>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm">
-              © 2024 OptionSellerVardhan. All rights reserved.
+              © {new Date().getFullYear()} OptionSellerVardhan. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm">
               Designed & Developed with ❤️ for Traders

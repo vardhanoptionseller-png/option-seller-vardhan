@@ -135,7 +135,7 @@ const Advisory = () => {
                         <div className="text-xs text-muted-foreground">Active Trades</div>
                       </div>
                       <div className="bg-card p-3 rounded border">
-                        <div className="text-2xl font-bold">85%</div>
+                        <div className="text-2xl font-bold">91%</div>
                         <div className="text-xs text-muted-foreground">Success Rate</div>
                       </div>
                     </div>
@@ -159,9 +159,15 @@ const Advisory = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <Button size="lg" className="w-full bg-gradient-success shadow-premium">
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    Access Live Sheet
+                  <Button size="lg" className="w-full bg-gradient-success shadow-premium" asChild>
+                    <a 
+                      href="https://docs.google.com/spreadsheets/d/1tcsD0yrMBEBS-_T36Sexk1lJIqyhyesKDuqY0BZWf-k/edit?gid=545892777#gid=545892777"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-5 h-5 mr-2" />
+                      Access Live Sheet
+                    </a>
                   </Button>
                   <Button variant="outline" size="lg" className="w-full">
                     View Sample Sheet

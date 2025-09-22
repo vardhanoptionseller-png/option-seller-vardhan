@@ -34,10 +34,9 @@ const About = () => {
   ];
 
   const achievements = [
-    "85% Success Rate in F&O Strategies",
+    "91% Success Rate in F&O Strategies",
     "2000+ Satisfied Clients",
     "₹50+ Crores Client Portfolio",
-    "Featured in Economic Times",
     "Winner - Best F&O Advisor 2023"
   ];
 
