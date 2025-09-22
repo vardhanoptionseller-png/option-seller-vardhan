@@ -180,8 +180,10 @@ const Contact = () => {
                 <CardContent className="p-0 text-center space-y-3">
                   <h4 className="font-semibold">{social.name}</h4>
                   <p className="text-sm text-muted-foreground">{social.description}</p>
-                  <Button variant="outline" size="sm" className="w-full">
-                    Follow
+                  <Button variant="outline" size="sm" className="w-full" asChild>
+                    <a href={social.url} target="_blank" rel="noopener noreferrer">
+                      Follow
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
