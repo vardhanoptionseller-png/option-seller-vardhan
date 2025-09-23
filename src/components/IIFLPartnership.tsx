@@ -56,7 +56,7 @@ const IIFLPartnership = () => {
           </h2>
           <p className="text-xl text-muted-foreground">
             Get exclusive benefits and seamless trading experience through our authorized 
-            IIFL sub-brokerage partnership. Start your F&O journey today!
+            IIFL franchise partnership. Start your F&O journey today!
           </p>
         </div>
 
@@ -115,9 +115,11 @@ const IIFLPartnership = () => {
                 </div>
 
                 <div className="space-y-4 pt-6 border-t border-border">
-                  <Button size="lg" className="w-full bg-gradient-success shadow-premium">
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    Open IIFL Account Now
+                  <Button size="lg" className="w-full bg-gradient-success shadow-premium" asChild>
+                    <a href="https://register.iiflcapital.com/?E1Code=w2rOurRD0YmCGpd7h9nBuA==" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-5 h-5 mr-2" />
+                      Open IIFL Account Now
+                    </a>
                   </Button>
                   <Button variant="outline" size="lg" className="w-full">
                     <ChevronRight className="w-5 h-5 mr-2" />

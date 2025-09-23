@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,8 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="OptionSellerVardhan Logo" className="h-10 w-auto" />
             <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               OptionSellerVardhan
             </span>
@@ -40,8 +42,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="default" className="bg-gradient-primary">
-              Start Trading
+            <Button variant="default" className="bg-gradient-primary" asChild>
+              <a href="https://register.iiflcapital.com/?E1Code=w2rOurRD0YmCGpd7h9nBuA==" target="_blank" rel="noopener noreferrer">
+                Start Trading
+              </a>
             </Button>
           </div>
 
@@ -71,8 +75,10 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
-              <Button variant="default" className="bg-gradient-primary mt-4">
-                Start Trading
+              <Button variant="default" className="bg-gradient-primary mt-4" asChild>
+                <a href="https://register.iiflcapital.com/?E1Code=w2rOurRD0YmCGpd7h9nBuA==" target="_blank" rel="noopener noreferrer">
+                  Start Trading
+                </a>
               </Button>
             </nav>
           </div>

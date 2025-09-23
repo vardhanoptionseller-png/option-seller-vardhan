@@ -28,7 +28,7 @@ const About = () => {
     },
     {
       icon: Users,
-      title: "IIFL Sub-Broker",
+      title: "IIFL Franchise Holder",
       description: "Authorized partner helping clients with seamless account opening"
     }
   ];
@@ -57,7 +57,7 @@ const About = () => {
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Vamsi Vardhan is a qualified Chartered Accountant and SEBI-registered investment advisor 
-                with over 8 years of expertise in F&O trading. As an authorized IIFL sub-broker, 
+                with over 8 years of expertise in F&O trading. As an authorized IIFL franchise holder, 
                 he has helped thousands of traders achieve consistent profits through proven strategies 
                 and disciplined risk management.
               </p>
