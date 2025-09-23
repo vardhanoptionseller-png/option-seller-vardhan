@@ -17,15 +17,15 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-7xl">
+        <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={logo} alt="OptionSellerVardhan Logo" className="h-10 w-auto" />
+            <img src={logo} alt="OptionSellerVardhan Logo" className="h-12 w-auto sm:h-14 md:h-16 min-w-[120px] object-contain" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-6 xl:space-x-8">
             {navigation.map((item) => (
               <a
                 key={item.name}
@@ -38,7 +38,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <Button variant="default" className="bg-gradient-primary" asChild>
               <a href="https://register.iiflcapital.com/?E1Code=w2rOurRD0YmCGpd7h9nBuA==" target="_blank" rel="noopener noreferrer">
                 Start Trading
@@ -47,7 +47,7 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
@@ -60,7 +60,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-border bg-card/95 backdrop-blur-sm">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <a

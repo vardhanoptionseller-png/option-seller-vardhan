@@ -63,22 +63,22 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-muted/30 to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-muted/30 to-background">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Get in{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg sm:text-xl text-muted-foreground">
             Have questions about our advisory services or need help with F&O trading? 
             We're here to help you succeed in the markets.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="space-y-6">
@@ -130,8 +130,8 @@ const Contact = () => {
                 </p>
               </CardHeader>
               <CardContent className="p-0">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                <form className="space-y-4 sm:space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Full Name</label>
                       <Input placeholder="Enter your full name" />
@@ -142,7 +142,7 @@ const Contact = () => {
                     </div>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Phone</label>
                       <Input placeholder="Enter your phone number" />
@@ -173,8 +173,8 @@ const Contact = () => {
 
         {/* Social Media Links */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-semibold mb-8">Follow Our Market Updates</h3>
-          <div className="grid md:grid-cols-4 gap-6">
+          <h3 className="text-lg sm:text-xl font-semibold mb-6 sm:mb-8">Follow Our Market Updates</h3>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {socialLinks.map((social, index) => (
               <Card key={index} className="p-6 border-border/50 hover:shadow-card transition-all duration-300 hover:border-primary/50">
                 <CardContent className="p-0 text-center space-y-3">

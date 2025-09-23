@@ -41,27 +41,27 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-16 sm:py-20 bg-background">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-6">
               <Badge className="bg-gradient-premium text-white">About Vamsi Vardhan</Badge>
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 Your Trusted{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   F&O Trading
                 </span>{" "}
                 Expert
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Vamsi Vardhan is a qualified Chartered Accountant and SEBI-registered investment advisor 
                 with over 8 years of expertise in F&O trading. As an authorized IIFL franchise holder, 
                 he has helped thousands of traders achieve consistent profits through proven strategies 
                 and disciplined risk management.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 His unique combination of CA expertise and market experience allows him to provide 
                 comprehensive financial guidance that goes beyond just trading signals - including 
                 tax optimization, risk management, and portfolio diversification strategies.
@@ -83,8 +83,8 @@ const About = () => {
           </div>
 
           {/* Credentials Grid */}
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {credentials.map((credential, index) => (
                 <Card key={index} className="p-6 border-border/50 hover:shadow-card transition-all duration-300 hover:border-primary/50">
                   <CardContent className="p-0 space-y-4">
