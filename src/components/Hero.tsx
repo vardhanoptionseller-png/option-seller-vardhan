@@ -12,7 +12,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="pt-20 sm:pt-24 md:pt-28 pb-16 min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/30">
+    <section id="home" className="pt-24 sm:pt-26 md:pt-32 pb-16 min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/30">
       <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}

@@ -18,10 +18,10 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-7xl">
-        <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
+        <div className="flex justify-between items-center h-20 sm:h-22 md:h-24">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={logo} alt="OptionSellerVardhan Logo" className="h-12 w-auto sm:h-14 md:h-16 min-w-[120px] object-contain" />
+            <img src={logo} alt="OptionSellerVardhan Logo" className="h-14 w-auto sm:h-16 md:h-20 min-w-[140px] sm:min-w-[160px] md:min-w-[180px] object-contain" />
           </div>
 
           {/* Desktop Navigation */}
