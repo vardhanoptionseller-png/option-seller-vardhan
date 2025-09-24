@@ -17,7 +17,7 @@ const Advisory = () => {
     {
       icon: TrendingUp,
       title: "Live F&O Signals",
-      description: "Real-time entry and exit signals for Nifty & Bank Nifty options"
+      description: "Real-time entry and exit signals for Stocks, Nifty & Bank Nifty options"
     },
     {
       icon: Target,
@@ -37,12 +37,10 @@ const Advisory = () => {
   ];
 
   const tradingStrategies = [
-    "Option Selling Strategies",
-    "Straddle & Strangle Setups",
-    "Iron Condor Spreads",
-    "Bull Call & Put Spreads",
-    "Calendar Spreads",
-    "Momentum Trading"
+    "Directional Stock Futures",
+    "Directional Stock Options",
+    "Index Directional Spreads (Bull/Bear Spreads)",
+    "Iron Condor Spreads"
   ];
 
   return (

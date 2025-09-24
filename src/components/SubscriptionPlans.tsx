@@ -9,7 +9,8 @@ const SubscriptionPlans = () => {
       name: "Starter",
       duration: "1 Month",
       price: "₹4,999",
-      originalPrice: "₹6,999",
+      originalPrice: null,
+      discount: null,
       icon: Zap,
       popular: false,
       description: "Perfect for beginners to test our strategies",
@@ -24,8 +25,9 @@ const SubscriptionPlans = () => {
     {
       name: "Professional",
       duration: "3 Months",
-      price: "₹12,999",
-      originalPrice: "₹18,999",
+      price: "₹11,999",
+      originalPrice: "₹14,997",
+      discount: "20%",
       icon: Star,
       popular: true,
       description: "Most popular choice for serious traders",
@@ -41,8 +43,9 @@ const SubscriptionPlans = () => {
     {
       name: "Expert",
       duration: "6 Months",
-      price: "₹24,999",
-      originalPrice: "₹35,999",
+      price: "₹19,999",
+      originalPrice: "₹29,994",
+      discount: "33%",
       icon: Crown,
       popular: false,
       description: "For experienced traders seeking consistent profits",
@@ -58,8 +61,9 @@ const SubscriptionPlans = () => {
     {
       name: "Master",
       duration: "1 Year",
-      price: "₹49,999",
-      originalPrice: "₹69,999",
+      price: "₹29,999",
+      originalPrice: "₹59,988",
+      discount: "50%",
       icon: Crown,
       popular: false,
       description: "Complete mastery program for professional traders",
@@ -121,9 +125,16 @@ const SubscriptionPlans = () => {
                 <div className="space-y-2">
                   <div className="flex items-baseline space-x-2">
                     <span className="text-3xl font-bold">{plan.price}</span>
-                    <span className="text-lg text-muted-foreground line-through">
-                      {plan.originalPrice}
-                    </span>
+                    {plan.originalPrice && (
+                      <span className="text-lg text-muted-foreground line-through">
+                        {plan.originalPrice}
+                      </span>
+                    )}
+                    {plan.discount && (
+                      <span className="text-sm bg-financial-green text-white px-2 py-1 rounded">
+                        {plan.discount} OFF
+                      </span>
+                    )}
                   </div>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
@@ -159,7 +170,7 @@ const SubscriptionPlans = () => {
             <strong>Money Back Guarantee:</strong> Not satisfied? Get 100% refund within 7 days.
           </p>
           <p className="text-sm text-muted-foreground">
-            All plans include GST. Prices subject to change. SEBI Registration: INH000007485
+            All plans include GST. Prices subject to change. SEBI Registration: INH00000XXXX
           </p>
         </div>
       </div>

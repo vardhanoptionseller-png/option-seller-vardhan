@@ -149,9 +149,9 @@ const Footer = () => {
                   independent advice if necessary.
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  <strong>SEBI Registration:</strong> INH000007485 | 
+                  <strong>SEBI Registration:</strong> INH00000XXXX | 
                   <strong> Sub-broker:</strong> IIFL Securities Ltd | 
-                  <strong> CA License:</strong> 123456
+                  <strong> CA License:</strong> XXXXXX
                 </p>
               </div>
             </div>

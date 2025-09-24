@@ -23,7 +23,7 @@ const About = () => {
     },
     {
       icon: TrendingUp,
-      title: "8+ Years Experience",
+      title: "10+ Years Experience",
       description: "Proven track record in F&O trading and market analysis"
     },
     {
@@ -35,7 +35,7 @@ const About = () => {
 
   const achievements = [
     "91% Success Rate in F&O Strategies",
-    "2000+ Satisfied Clients",
+    "1000+ Satisfied Clients",
     "₹50+ Crores Client Portfolio",
     "Winner - Best F&O Advisor 2023"
   ];
@@ -57,8 +57,8 @@ const About = () => {
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Vamsi Vardhan is a qualified Chartered Accountant and SEBI-registered investment advisor 
-                with over 8 years of expertise in F&O trading. As an authorized IIFL franchise holder, 
-                he has helped thousands of traders achieve consistent profits through proven strategies 
+                with over 10+ years of expertise in F&O trading. As an authorized IIFL franchise holder, 
+                he has helped hundreds of traders achieve consistent profits through proven strategies 
                 and disciplined risk management.
               </p>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">

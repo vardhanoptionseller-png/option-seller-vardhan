@@ -5,9 +5,9 @@ import heroImage from "@/assets/hero-trading.jpg";
 
 const Hero = () => {
   const stats = [
-    { icon: TrendingUp, label: "Success Rate", value: "85%" },
-    { icon: Users, label: "Active Clients", value: "2000+" },
-    { icon: Award, label: "Years Experience", value: "8+" },
+    { icon: TrendingUp, label: "Success Rate", value: "91%" },
+    { icon: Users, label: "Active Clients", value: "50+" },
+    { icon: Award, label: "Years Experience", value: "10+" },
     { icon: Shield, label: "SEBI Registered", value: "Verified" },
   ];
 
@@ -27,7 +27,7 @@ const Hero = () => {
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                 Get professional options trading strategies, live market updates, and proven advisory services. 
-                Join 2000+ successful traders who trust our SEBI-registered expertise.
+                Join 50+ successful traders who trust our SEBI-registered expertise.
               </p>
             </div>
 
