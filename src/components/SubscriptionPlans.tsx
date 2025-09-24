@@ -2,8 +2,98 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Zap, Crown } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+
+// Declare Razorpay interface for TypeScript
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 const SubscriptionPlans = () => {
+  const { toast } = useToast();
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+
+  // Razorpay test key - replace with your test key
+  const RAZORPAY_KEY_ID = "rzp_test_1DP5mmOlF5G5ag";
+
+  const handlePayment = async (plan: any) => {
+    if (!window.Razorpay) {
+      toast({
+        title: "Error",
+        description: "Payment gateway not loaded. Please refresh and try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoadingPlan(plan.name);
+
+    // Convert price from string (₹4,999) to number in paise
+    const priceNumber = parseInt(plan.price.replace('₹', '').replace(',', '')) * 100;
+
+    const options = {
+      key: RAZORPAY_KEY_ID,
+      amount: priceNumber,
+      currency: 'INR',
+      name: 'OptionSellerVardhan',
+      description: `${plan.name} Plan - ${plan.duration}`,
+      image: '/src/assets/logo.png',
+      handler: function (response: any) {
+        // Payment success
+        toast({
+          title: "Payment Successful!",
+          description: `Thank you for subscribing to ${plan.name} plan. Payment ID: ${response.razorpay_payment_id}`,
+        });
+        setLoadingPlan(null);
+        
+        // Here you would normally send the payment details to your backend
+        console.log('Payment Success:', {
+          paymentId: response.razorpay_payment_id,
+          plan: plan.name,
+          amount: priceNumber,
+          duration: plan.duration
+        });
+      },
+      modal: {
+        ondismiss: function () {
+          setLoadingPlan(null);
+          toast({
+            title: "Payment Cancelled",
+            description: "Payment was cancelled by user.",
+            variant: "destructive",
+          });
+        }
+      },
+      prefill: {
+        name: 'Customer Name',
+        email: 'customer@example.com',
+        contact: '9999999999'
+      },
+      notes: {
+        plan: plan.name,
+        duration: plan.duration
+      },
+      theme: {
+        color: '#3B82F6'
+      }
+    };
+
+    const rzp = new window.Razorpay(options);
+    
+    rzp.on('payment.failed', function (response: any) {
+      toast({
+        title: "Payment Failed",
+        description: `Payment failed: ${response.error.description}`,
+        variant: "destructive",
+      });
+      setLoadingPlan(null);
+    });
+
+    rzp.open();
+  };
   const plans = [
     {
       name: "Starter",
@@ -120,8 +210,12 @@ const SubscriptionPlans = () => {
                       : "bg-gradient-primary"
                   }`}
                   size="lg"
+                  onClick={() => handlePayment(plan)}
+                  disabled={loadingPlan === plan.name}
                 >
-                  {plan.popular ? "Get Started" : "Choose Plan"}
+                  {loadingPlan === plan.name 
+                    ? "Processing..." 
+                    : plan.popular ? "Get Started" : "Choose Plan"}
                 </Button>
               </CardContent>
             </Card>
