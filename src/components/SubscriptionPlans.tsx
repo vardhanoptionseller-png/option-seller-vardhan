@@ -14,13 +14,7 @@ const SubscriptionPlans = () => {
       icon: Zap,
       popular: false,
       description: "Perfect for beginners to test our strategies",
-      features: [
-        "Live F&O Trading Signals",
-        "Google Sheet Access",
-        "Basic Market Analysis",
-        "Telegram Group Access",
-        "Email Support"
-      ]
+      features: []
     },
     {
       name: "Professional",
@@ -31,14 +25,7 @@ const SubscriptionPlans = () => {
       icon: Star,
       popular: true,
       description: "Most popular choice for serious traders",
-      features: [
-        "Everything in Starter",
-        "Advanced Trading Strategies",
-        "Weekly Market Outlook",
-        "Priority Telegram Support",
-        "Risk Management Guide",
-        "Performance Analytics"
-      ]
+      features: []
     },
     {
       name: "Expert",
@@ -49,14 +36,7 @@ const SubscriptionPlans = () => {
       icon: Crown,
       popular: false,
       description: "For experienced traders seeking consistent profits",
-      features: [
-        "Everything in Professional",
-        "1-on-1 Strategy Sessions",
-        "Custom Risk Profiling",
-        "Advanced Option Strategies",
-        "Market Crash Protection",
-        "Direct WhatsApp Access"
-      ]
+      features: []
     },
     {
       name: "Master",
@@ -67,15 +47,7 @@ const SubscriptionPlans = () => {
       icon: Crown,
       popular: false,
       description: "Complete mastery program for professional traders",
-      features: [
-        "Everything in Expert",
-        "Monthly Video Calls",
-        "Exclusive Master Strategies",
-        "Portfolio Review Sessions",
-        "Tax Planning Guidance",
-        "Lifetime Telegram Access",
-        "IIFL Premium Benefits"
-      ]
+      features: []
     }
   ];
 
@@ -141,15 +113,6 @@ const SubscriptionPlans = () => {
               </CardHeader>
 
               <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start space-x-3">
-                      <Check className="w-5 h-5 text-financial-green mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
                 <Button
                   className={`w-full ${
                     plan.popular 
