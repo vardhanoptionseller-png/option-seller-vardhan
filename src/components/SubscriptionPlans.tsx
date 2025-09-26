@@ -5,10 +5,10 @@ import { Check, Star, Zap, Crown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
-// Declare Razorpay interface for TypeScript
+// Declare PhonePe interface for TypeScript
 declare global {
   interface Window {
-    Razorpay: any;
+    PhonePe: any;
   }
 }
 
@@ -16,83 +16,73 @@ const SubscriptionPlans = () => {
   const { toast } = useToast();
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
 
-  // Razorpay test key - replace with your test key
-  const RAZORPAY_KEY_ID = "rzp_test_1DP5mmOlF5G5ag";
+  // PhonePe test merchant ID
+  const PHONEPE_MERCHANT_ID = "PGTESTPAYUAT";
 
   const handlePayment = async (plan: any) => {
-    if (!window.Razorpay) {
-      toast({
-        title: "Error",
-        description: "Payment gateway not loaded. Please refresh and try again.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setLoadingPlan(plan.name);
 
     // Convert price from string (₹4,999) to number in paise
     const priceNumber = parseInt(plan.price.replace('₹', '').replace(',', '')) * 100;
 
-    const options = {
-      key: RAZORPAY_KEY_ID,
-      amount: priceNumber,
-      currency: 'INR',
-      name: 'OptionSellerVardhan',
-      description: `${plan.name} Plan - ${plan.duration}`,
-      image: '/src/assets/logo.png',
-      handler: function (response: any) {
-        // Payment success
+    // Generate unique transaction ID
+    const transactionId = `TXN_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+    try {
+      // Simulate PhonePe payment request
+      const paymentData = {
+        merchantId: PHONEPE_MERCHANT_ID,
+        merchantTransactionId: transactionId,
+        amount: priceNumber,
+        redirectUrl: window.location.href,
+        redirectMode: "POST",
+        callbackUrl: window.location.href,
+        paymentInstrument: {
+          type: "PAY_PAGE"
+        }
+      };
+
+      // Simulate payment processing delay
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Simulate payment success (90% success rate for testing)
+      const isSuccess = Math.random() > 0.1;
+
+      if (isSuccess) {
+        // Simulate successful payment
         toast({
           title: "Payment Successful!",
-          description: `Thank you for subscribing to ${plan.name} plan. Payment ID: ${response.razorpay_payment_id}`,
+          description: `Thank you for subscribing to ${plan.name} plan. Transaction ID: ${transactionId}`,
         });
-        setLoadingPlan(null);
         
-        // Here you would normally send the payment details to your backend
-        console.log('Payment Success:', {
-          paymentId: response.razorpay_payment_id,
+        console.log('PhonePe Payment Success:', {
+          transactionId,
           plan: plan.name,
           amount: priceNumber,
-          duration: plan.duration
+          duration: plan.duration,
+          merchantId: PHONEPE_MERCHANT_ID,
+          status: 'SUCCESS'
         });
-      },
-      modal: {
-        ondismiss: function () {
-          setLoadingPlan(null);
-          toast({
-            title: "Payment Cancelled",
-            description: "Payment was cancelled by user.",
-            variant: "destructive",
-          });
-        }
-      },
-      prefill: {
-        name: 'Customer Name',
-        email: 'customer@example.com',
-        contact: '9999999999'
-      },
-      notes: {
-        plan: plan.name,
-        duration: plan.duration
-      },
-      theme: {
-        color: '#3B82F6'
+      } else {
+        // Simulate payment failure
+        throw new Error('Payment declined by bank');
       }
-    };
-
-    const rzp = new window.Razorpay(options);
-    
-    rzp.on('payment.failed', function (response: any) {
+    } catch (error: any) {
       toast({
         title: "Payment Failed",
-        description: `Payment failed: ${response.error.description}`,
+        description: `Payment failed: ${error.message || 'Unknown error occurred'}`,
         variant: "destructive",
       });
+      
+      console.log('PhonePe Payment Failed:', {
+        transactionId,
+        plan: plan.name,
+        amount: priceNumber,
+        error: error.message
+      });
+    } finally {
       setLoadingPlan(null);
-    });
-
-    rzp.open();
+    }
   };
   const plans = [
     {
@@ -214,8 +204,8 @@ const SubscriptionPlans = () => {
                   disabled={loadingPlan === plan.name}
                 >
                   {loadingPlan === plan.name 
-                    ? "Processing..." 
-                    : plan.popular ? "Get Started" : "Choose Plan"}
+                    ? "Processing Payment..." 
+                    : plan.popular ? "Pay with PhonePe" : "Subscribe Now"}
                 </Button>
               </CardContent>
             </Card>
