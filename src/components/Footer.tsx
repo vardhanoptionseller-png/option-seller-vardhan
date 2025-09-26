@@ -19,10 +19,10 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { name: "Terms of Service", href: "#terms" },
-    { name: "Privacy Policy", href: "#privacy" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
     { name: "Risk Disclaimer", href: "#disclaimer" },
-    { name: "Refund Policy", href: "#refund" }
+    { name: "Refund Policy", href: "/refund" }
   ];
 
   const socialLinks = [
