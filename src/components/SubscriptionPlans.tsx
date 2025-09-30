@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Star, Zap, Crown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { PhonePePaymentDialog } from "./PhonePePaymentDialog";
 
 // Declare PhonePe interface for TypeScript
 declare global {
@@ -14,101 +15,45 @@ declare global {
 
 const SubscriptionPlans = () => {
   const { toast } = useToast();
-  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<any | null>(null);
+  const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
 
-  // PhonePe test merchant ID
-  const PHONEPE_MERCHANT_ID = "PGTESTPAYUAT";
+  const handlePaymentClick = (plan: any) => {
+    setSelectedPlan(plan);
+    setIsPaymentDialogOpen(true);
+  };
 
-  const handlePayment = async (plan: any) => {
-    setLoadingPlan(plan.name);
+  const handlePaymentSuccess = (transactionId: string) => {
+    toast({
+      title: "✅ Payment Successful!",
+      description: `Successfully subscribed to ${selectedPlan?.name} plan. Transaction ID: ${transactionId}`,
+    });
 
-    // Convert price from string (₹4,999) to number in paise
-    const priceNumber = parseInt(plan.price.replace('₹', '').replace(',', '')) * 100;
+    console.log("=== PhonePe Payment Success ===");
+    console.log({
+      status: "SUCCESS",
+      transactionId,
+      plan: selectedPlan?.name,
+      amount: selectedPlan?.price,
+      duration: selectedPlan?.duration,
+      timestamp: new Date().toISOString(),
+    });
+  };
 
-    // Generate unique transaction ID for testing
-    const transactionId = `OSV_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  const handlePaymentFailure = (error: string) => {
+    toast({
+      title: "Payment Failed",
+      description: error,
+      variant: "destructive",
+    });
 
-    try {
-      // PhonePe Test Environment Payment Flow
-      const paymentData = {
-        merchantId: PHONEPE_MERCHANT_ID,
-        merchantTransactionId: transactionId,
-        amount: priceNumber,
-        merchantUserId: `USER_${Date.now()}`,
-        redirectUrl: `${window.location.origin}/?payment=success`,
-        redirectMode: "POST",
-        callbackUrl: `${window.location.origin}/api/payment/callback`,
-        paymentInstrument: {
-          type: "PAY_PAGE"
-        }
-      };
-
-      console.log('=== PhonePe Test Payment Initiated ===');
-      console.log('Payment Data:', {
-        ...paymentData,
-        planDetails: {
-          name: plan.name,
-          duration: plan.duration,
-          price: plan.price
-        },
-        testMode: true,
-        environment: 'UAT'
-      });
-
-      // Show test payment instructions
-      toast({
-        title: "Test Payment Mode Active",
-        description: `Initiating test payment for ${plan.name} plan. Amount: ${plan.price}`,
-      });
-
-      // Simulate payment processing delay (realistic timing)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      // In test environment, simulate successful payment
-      // For production, this would redirect to PhonePe payment gateway
-      const isSuccess = true; // Set to true for testing successful payments
-
-      if (isSuccess) {
-        toast({
-          title: "✅ Test Payment Successful!",
-          description: `Successfully subscribed to ${plan.name} plan. Transaction ID: ${transactionId}`,
-        });
-        
-        console.log('=== PhonePe Test Payment Success ===');
-        console.log({
-          status: 'SUCCESS',
-          transactionId,
-          plan: plan.name,
-          amount: plan.price,
-          amountInPaise: priceNumber,
-          duration: plan.duration,
-          merchantId: PHONEPE_MERCHANT_ID,
-          timestamp: new Date().toISOString(),
-          testEnvironment: 'UAT',
-          message: 'This is a test transaction. In production, user would be redirected to PhonePe.'
-        });
-      } else {
-        throw new Error('Payment declined - Test scenario');
-      }
-    } catch (error: any) {
-      toast({
-        title: "Payment Failed",
-        description: error.message || 'Test payment failed. Please try again.',
-        variant: "destructive",
-      });
-      
-      console.log('=== PhonePe Test Payment Failed ===');
-      console.log({
-        status: 'FAILED',
-        transactionId,
-        plan: plan.name,
-        amount: priceNumber,
-        error: error.message,
-        timestamp: new Date().toISOString()
-      });
-    } finally {
-      setLoadingPlan(null);
-    }
+    console.log("=== PhonePe Payment Failed ===");
+    console.log({
+      status: "FAILED",
+      plan: selectedPlan?.name,
+      error,
+      timestamp: new Date().toISOString(),
+    });
   };
   const plans = [
     {
@@ -226,12 +171,9 @@ const SubscriptionPlans = () => {
                       : "bg-gradient-primary"
                   }`}
                   size="lg"
-                  onClick={() => handlePayment(plan)}
-                  disabled={loadingPlan === plan.name}
+                  onClick={() => handlePaymentClick(plan)}
                 >
-                  {loadingPlan === plan.name 
-                    ? "Processing Payment..." 
-                    : plan.popular ? "Pay with PhonePe" : "Subscribe Now"}
+                  {plan.popular ? "Pay with PhonePe" : "Subscribe Now"}
                 </Button>
               </CardContent>
             </Card>
@@ -247,6 +189,17 @@ const SubscriptionPlans = () => {
           </p>
         </div>
       </div>
+
+      {/* PhonePe Payment Dialog */}
+      {selectedPlan && (
+        <PhonePePaymentDialog
+          isOpen={isPaymentDialogOpen}
+          onClose={() => setIsPaymentDialogOpen(false)}
+          plan={selectedPlan}
+          onPaymentSuccess={handlePaymentSuccess}
+          onPaymentFailure={handlePaymentFailure}
+        />
+      )}
     </section>
   );
 };
