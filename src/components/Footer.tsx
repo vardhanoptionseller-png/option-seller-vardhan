@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { 
   Shield, 
   AlertTriangle, 
@@ -118,12 +119,21 @@ const Footer = () => {
               <ul className="space-y-3">
                 {legalLinks.map((link, index) => (
                   <li key={index}>
-                    <a
-                      href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
+                    {link.href.startsWith('#') ? (
+                      <a
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

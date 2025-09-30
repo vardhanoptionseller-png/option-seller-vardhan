@@ -25,60 +25,86 @@ const SubscriptionPlans = () => {
     // Convert price from string (₹4,999) to number in paise
     const priceNumber = parseInt(plan.price.replace('₹', '').replace(',', '')) * 100;
 
-    // Generate unique transaction ID
-    const transactionId = `TXN_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Generate unique transaction ID for testing
+    const transactionId = `OSV_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     try {
-      // Simulate PhonePe payment request
+      // PhonePe Test Environment Payment Flow
       const paymentData = {
         merchantId: PHONEPE_MERCHANT_ID,
         merchantTransactionId: transactionId,
         amount: priceNumber,
-        redirectUrl: window.location.href,
+        merchantUserId: `USER_${Date.now()}`,
+        redirectUrl: `${window.location.origin}/?payment=success`,
         redirectMode: "POST",
-        callbackUrl: window.location.href,
+        callbackUrl: `${window.location.origin}/api/payment/callback`,
         paymentInstrument: {
           type: "PAY_PAGE"
         }
       };
 
-      // Simulate payment processing delay
+      console.log('=== PhonePe Test Payment Initiated ===');
+      console.log('Payment Data:', {
+        ...paymentData,
+        planDetails: {
+          name: plan.name,
+          duration: plan.duration,
+          price: plan.price
+        },
+        testMode: true,
+        environment: 'UAT'
+      });
+
+      // Show test payment instructions
+      toast({
+        title: "Test Payment Mode Active",
+        description: `Initiating test payment for ${plan.name} plan. Amount: ${plan.price}`,
+      });
+
+      // Simulate payment processing delay (realistic timing)
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Simulate payment success (90% success rate for testing)
-      const isSuccess = Math.random() > 0.1;
+      // In test environment, simulate successful payment
+      // For production, this would redirect to PhonePe payment gateway
+      const isSuccess = true; // Set to true for testing successful payments
 
       if (isSuccess) {
-        // Simulate successful payment
         toast({
-          title: "Payment Successful!",
-          description: `Thank you for subscribing to ${plan.name} plan. Transaction ID: ${transactionId}`,
+          title: "✅ Test Payment Successful!",
+          description: `Successfully subscribed to ${plan.name} plan. Transaction ID: ${transactionId}`,
         });
         
-        console.log('PhonePe Payment Success:', {
+        console.log('=== PhonePe Test Payment Success ===');
+        console.log({
+          status: 'SUCCESS',
           transactionId,
           plan: plan.name,
-          amount: priceNumber,
+          amount: plan.price,
+          amountInPaise: priceNumber,
           duration: plan.duration,
           merchantId: PHONEPE_MERCHANT_ID,
-          status: 'SUCCESS'
+          timestamp: new Date().toISOString(),
+          testEnvironment: 'UAT',
+          message: 'This is a test transaction. In production, user would be redirected to PhonePe.'
         });
       } else {
-        // Simulate payment failure
-        throw new Error('Payment declined by bank');
+        throw new Error('Payment declined - Test scenario');
       }
     } catch (error: any) {
       toast({
         title: "Payment Failed",
-        description: `Payment failed: ${error.message || 'Unknown error occurred'}`,
+        description: error.message || 'Test payment failed. Please try again.',
         variant: "destructive",
       });
       
-      console.log('PhonePe Payment Failed:', {
+      console.log('=== PhonePe Test Payment Failed ===');
+      console.log({
+        status: 'FAILED',
         transactionId,
         plan: plan.name,
         amount: priceNumber,
-        error: error.message
+        error: error.message,
+        timestamp: new Date().toISOString()
       });
     } finally {
       setLoadingPlan(null);
