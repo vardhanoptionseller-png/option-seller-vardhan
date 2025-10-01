@@ -20,10 +20,10 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Risk Disclaimer", href: "#disclaimer" },
-    { name: "Refund Policy", href: "/refund" }
+    { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Risk Disclaimer", href: "/risk-disclaimer" },
+    { name: "Refund Policy", href: "/refund-policy" }
   ];
 
   const socialLinks = [
@@ -119,21 +119,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {legalLinks.map((link, index) => (
                   <li key={index}>
-                    {link.href.startsWith('#') ? (
-                      <a
-                        href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
