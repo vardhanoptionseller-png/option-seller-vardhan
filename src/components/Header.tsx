@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navigation = [
     { name: "Home", href: "#home" },
@@ -15,25 +18,39 @@ const Header = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleNavClick = (href: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-3 sm:px-4 lg:px-8 max-w-7xl">
         <div className="flex justify-between items-center h-20 sm:h-22 md:h-24">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
             <img src={logo} alt="OptionSellerVardhan Logo" className="h-14 w-auto sm:h-16 md:h-20 min-w-[140px] sm:min-w-[160px] md:min-w-[180px] object-contain" />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-6 xl:space-x-8">
             {navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -63,14 +80,13 @@ const Header = () => {
           <div className="lg:hidden py-4 border-t border-border bg-card/95 backdrop-blur-sm">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-muted-foreground hover:text-foreground transition-colors text-left"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
               <Button variant="default" className="bg-gradient-primary mt-4" asChild>
                 <a href="https://register.iiflcapital.com/?E1Code=w2rOurRD0YmCGpd7h9nBuA==" target="_blank" rel="noopener noreferrer">
