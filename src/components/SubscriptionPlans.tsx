@@ -23,20 +23,55 @@ const SubscriptionPlans = () => {
     setIsPaymentDialogOpen(true);
   };
 
-  const handlePaymentSuccess = (transactionId: string) => {
+  const handlePaymentSuccess = (transactionId: string, paymentDetails: any) => {
+    // Create detailed payment summary
+    const paymentSummary = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PAYMENT DETAILS - TEST MODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Status: ${paymentDetails.status}
+💳 Transaction ID: ${paymentDetails.transactionId}
+
+📦 PLAN DETAILS:
+   • Plan: ${paymentDetails.plan}
+   • Duration: ${paymentDetails.duration}
+   • Amount: ${paymentDetails.amount}
+
+💰 PAYMENT METHOD: ${paymentDetails.paymentMethod}
+${paymentDetails.paymentMethod === 'UPI' 
+  ? `   • UPI ID: ${paymentDetails.paymentInfo.upiId}`
+  : paymentDetails.paymentMethod === 'CARD'
+  ? `   • Card: ${paymentDetails.paymentInfo.cardNumber}\n   • Name: ${paymentDetails.paymentInfo.cardName}`
+  : `   • Bank: ${paymentDetails.paymentInfo.bank}`
+}
+
+📅 Date & Time: ${paymentDetails.date}
+
+📞 Contact: +917829022140
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    `.trim();
+
+    console.log("=== PAYMENT SUCCESS - FULL DETAILS ===");
+    console.log(paymentSummary);
+    console.log("\n=== JSON FORMAT ===");
+    console.log(JSON.stringify(paymentDetails, null, 2));
+
     toast({
       title: "✅ Payment Successful!",
-      description: `Successfully subscribed to ${selectedPlan?.name} plan. Transaction ID: ${transactionId}`,
-    });
-
-    console.log("=== PhonePe Payment Success ===");
-    console.log({
-      status: "SUCCESS",
-      transactionId,
-      plan: selectedPlan?.name,
-      amount: selectedPlan?.price,
-      duration: selectedPlan?.duration,
-      timestamp: new Date().toISOString(),
+      description: (
+        <div className="space-y-2 text-sm">
+          <p><strong>Transaction ID:</strong> {transactionId}</p>
+          <p><strong>Plan:</strong> {paymentDetails.plan} ({paymentDetails.duration})</p>
+          <p><strong>Amount:</strong> {paymentDetails.amount}</p>
+          <p><strong>Method:</strong> {paymentDetails.paymentMethod}</p>
+          <div className="mt-3 pt-3 border-t text-xs text-muted-foreground">
+            <p>✅ Test Mode - Full details logged to console</p>
+            <p>📞 Send to: +917829022140</p>
+          </div>
+        </div>
+      ),
+      duration: 10000,
     });
   };
 

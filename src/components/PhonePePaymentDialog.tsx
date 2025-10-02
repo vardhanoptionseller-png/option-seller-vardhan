@@ -14,7 +14,7 @@ interface PhonePePaymentDialogProps {
     price: string;
     duration: string;
   };
-  onPaymentSuccess: (transactionId: string) => void;
+  onPaymentSuccess: (transactionId: string, paymentDetails: any) => void;
   onPaymentFailure: (error: string) => void;
 }
 
@@ -52,7 +52,28 @@ export const PhonePePaymentDialog = ({
     const isSuccess = Math.random() > 0.05;
 
     if (isSuccess) {
-      onPaymentSuccess(transactionId);
+      const paymentDetails = {
+        transactionId,
+        paymentMethod: paymentMethod.toUpperCase(),
+        plan: plan.name,
+        duration: plan.duration,
+        amount: plan.price,
+        timestamp: new Date().toISOString(),
+        date: new Date().toLocaleString('en-IN', { 
+          timeZone: 'Asia/Kolkata',
+          dateStyle: 'full',
+          timeStyle: 'long'
+        }),
+        paymentInfo: paymentMethod === 'upi' 
+          ? { upiId: formData.upiId }
+          : paymentMethod === 'card'
+          ? { cardNumber: `****${formData.cardNumber.slice(-4)}`, cardName: formData.cardName }
+          : { bank: formData.netBankingBank },
+        status: 'SUCCESS',
+        testMode: true
+      };
+      
+      onPaymentSuccess(transactionId, paymentDetails);
       onClose();
     } else {
       onPaymentFailure("Payment declined by bank. Please try again.");
