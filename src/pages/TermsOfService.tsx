@@ -103,9 +103,9 @@ const TermsOfService = () => {
               For questions about these Terms of Service, please contact us at:
             </p>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>Email: support@optionsellervardhan.com</li>
-              <li>Phone: +91 98765 43210</li>
-              <li>Address: Mumbai, Maharashtra, India</li>
+              <li>Email: info@optionsellervardhan.com</li>
+              <li>Phone: +91 9989063944</li>
+              <li>Address: NO 45/3 GOPALA KRISHNA COMPLEX, RESIDENCY ROAD M G ROAD, Bengaluru, Bengaluru Urban, Karnataka, 560025</li>
             </ul>
           </section>
         </div>

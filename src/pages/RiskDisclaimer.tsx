@@ -221,7 +221,7 @@ const RiskDisclaimer = () => {
               For any grievances or concerns regarding our services:
             </p>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>Email: grievances@optionsellervardhan.com</li>
+              <li>Email: info@optionsellervardhan.com</li>
               <li>Phone: +91 9989063944</li>
               <li>SEBI SCORES: <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://scores.sebi.gov.in</a></li>
               <li>Response time: Within 7 working days</li>

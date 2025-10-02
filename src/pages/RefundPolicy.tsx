@@ -61,7 +61,7 @@ const RefundPolicy = () => {
             
             <h3 className="text-lg sm:text-xl font-semibold">4.1 How to Request a Refund</h3>
             <ol className="list-decimal pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>Send an email to support@optionsellervardhan.com</li>
+              <li>Send an email to info@optionsellervardhan.com</li>
               <li>Include your subscription details and payment transaction ID</li>
               <li>Provide a clear reason for the refund request</li>
               <li>Our team will review your request within 2-3 business days</li>
@@ -164,10 +164,10 @@ const RefundPolicy = () => {
               For refund requests or questions about this policy:
             </p>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>Email: support@optionsellervardhan.com</li>
-              <li>Phone: +91 98765 43210</li>
+              <li>Email: info@optionsellervardhan.com</li>
+              <li>Phone: +91 9989063944</li>
               <li>Business Hours: Monday to Friday, 9:00 AM to 6:00 PM IST</li>
-              <li>Address: Mumbai, Maharashtra, India</li>
+              <li>Address: NO 45/3 GOPALA KRISHNA COMPLEX, RESIDENCY ROAD M G ROAD, Bengaluru, Bengaluru Urban, Karnataka, 560025</li>
             </ul>
           </section>
 
