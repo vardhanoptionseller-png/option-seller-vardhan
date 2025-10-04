@@ -19,63 +19,33 @@ const RefundPolicy = () => {
 
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">2. Refund Eligibility</h2>
-            
-            <h3 className="text-lg sm:text-xl font-semibold">2.1 Monthly Subscriptions</h3>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li><strong>7-Day Money Back Guarantee:</strong> New subscribers can request a full refund within 7 days of their first subscription</li>
-              <li>Refunds are only applicable if less than 3 trading signals have been accessed</li>
-              <li>Refund requests must be made via email with a valid reason</li>
-            </ul>
-
-            <h3 className="text-lg sm:text-xl font-semibold">2.2 Yearly Subscriptions</h3>
-            <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li><strong>30-Day Money Back Guarantee:</strong> Full refund available within 30 days of purchase</li>
-              <li>Partial refunds may be considered after 30 days on a case-by-case basis</li>
-              <li>Refund amount will be prorated based on unused months</li>
-            </ul>
-
-            <h3 className="text-lg sm:text-xl font-semibold">2.3 Lifetime Subscriptions</h3>
-            <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li><strong>60-Day Money Back Guarantee:</strong> Full refund available within 60 days of purchase</li>
-              <li>After 60 days, refunds are not available due to the nature of lifetime access</li>
-              <li>Exceptional circumstances will be reviewed individually</li>
+              <li>Cancellation requests will be entertained only if submitted within 1 hour of placing the order and prior to access being granted on Telegram</li>
+              <li>Once access to the TrendSniperX Channel has been enabled, no cancellations or refunds will be permissible.</li>
+              <li>Given the digital and non-returnable nature of our product, refunds are not applicable once access has been provided.</li>
+              <li>In the event of a subscription error or if access has not been received within the stipulated time frame, we request you to notify our support team within 7 days of purchase.</li>
+              <li>In rare and exceptional circumstances, should a refund be sanctioned, the same will be processed within 3–5 business days.</li>
             </ul>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">3. Non-Refundable Situations</h2>
-            <p className="text-sm sm:text-base">Refunds will not be provided in the following circumstances:</p>
-            <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>Trading losses incurred by following our recommendations</li>
-              <li>Changes in market conditions or economic factors</li>
-              <li>Dissatisfaction with trading results or performance</li>
-              <li>Requests made after the applicable refund period</li>
-              <li>Violations of our Terms of Service</li>
-              <li>Sharing account access with unauthorized users</li>
-              <li>Failure to follow risk management guidelines</li>
-            </ul>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">4. Refund Process</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">3. Refund Process</h2>
             
-            <h3 className="text-lg sm:text-xl font-semibold">4.1 How to Request a Refund</h3>
-            <ol className="list-decimal pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3">3.1 How to Request a Refund</h3>
+            <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li>Send an email to info@optionsellervardhan.com</li>
               <li>Include your subscription details and payment transaction ID</li>
               <li>Provide a clear reason for the refund request</li>
               <li>Our team will review your request within 2-3 business days</li>
-            </ol>
+            </ul>
 
-            <h3 className="text-lg sm:text-xl font-semibold">4.2 Processing Time</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-3">3.2 Processing Time</h3>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li>Review process: 2-3 business days</li>
               <li>Approved refunds: 5-7 business days to reflect in your account</li>
-              <li>Payment gateway processing: Additional 3-5 business days</li>
-              <li>Total processing time: 10-15 business days maximum</li>
             </ul>
 
-            <h3 className="text-lg sm:text-xl font-semibold">4.3 Refund Method</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-3">3.3 Refund Method</h3>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li>Refunds will be processed to the original payment method</li>
               <li>Bank transfers for cases where original method is unavailable</li>
@@ -84,7 +54,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">5. Partial Refunds</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">4. Partial Refunds</h2>
             <p className="text-sm sm:text-base">
               Partial refunds may be considered in specific situations:
             </p>
@@ -92,7 +62,6 @@ const RefundPolicy = () => {
               <li>Service interruptions lasting more than 48 hours</li>
               <li>Technical issues preventing access to subscribed content</li>
               <li>Billing errors or duplicate charges</li>
-              <li>Downgrade requests from higher to lower tier subscriptions</li>
             </ul>
             <p className="text-sm sm:text-base">
               Partial refund amounts will be calculated based on the unused portion of the subscription period.
@@ -100,7 +69,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">6. Automatic Renewals and Cancellations</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">5. Automatic Renewals and Cancellations</h2>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li>Monthly subscriptions auto-renew unless cancelled 24 hours before renewal</li>
               <li>Cancellations can be made through account settings or customer support</li>
@@ -110,7 +79,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">7. Service Modifications</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">6. Service Modifications</h2>
             <p className="text-sm sm:text-base">
               If we significantly modify our services or pricing:
             </p>
@@ -123,7 +92,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">8. Force Majeure</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">7. Force Majeure</h2>
             <p className="text-sm sm:text-base">
               We are not liable for refunds due to circumstances beyond our control, including:
             </p>
@@ -136,20 +105,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">9. Dispute Resolution</h2>
-            <p className="text-sm sm:text-base">
-              If you disagree with our refund decision:
-            </p>
-            <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>You may escalate the matter to our senior management</li>
-              <li>Provide additional documentation or justification</li>
-              <li>We will conduct a secondary review within 5 business days</li>
-              <li>Final decisions will be communicated in writing</li>
-            </ul>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">10. Important Disclaimers</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">8. Important Disclaimers</h2>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li><strong>Risk Warning:</strong> Trading in derivatives involves substantial risk of loss</li>
               <li><strong>No Guarantee:</strong> Past performance does not guarantee future results</li>
@@ -159,7 +115,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">11. Contact Information</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">9. Contact Information</h2>
             <p className="text-sm sm:text-base">
               For refund requests or questions about this policy:
             </p>
@@ -172,7 +128,7 @@ const RefundPolicy = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">12. Policy Changes</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">10. Policy Changes</h2>
             <p className="text-sm sm:text-base">
               We reserve the right to modify this Refund Policy at any time. Changes will be effective immediately upon posting on our website. Continued use of our services after policy changes constitutes acceptance of the new terms.
             </p>

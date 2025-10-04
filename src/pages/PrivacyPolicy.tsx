@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
             <h3 className="text-lg sm:text-xl font-semibold mb-3">Personal Information:</h3>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li>Name and contact information (email, phone number)</li>
-              <li>Payment information (processed securely through Razorpay)</li>
+              <li>Payment information (processed securely through PhonePe)</li>
               <li>Trading preferences and risk profile</li>
               <li>Communication history with our support team</li>
             </ul>
@@ -50,14 +50,8 @@ const PrivacyPolicy = () => {
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">3. Information Sharing and Disclosure</h2>
             <p className="text-sm sm:text-base">
-              We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:
+              We do not sell, trade, or rent your personal information to third parties.
             </p>
-            <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li><strong>Service Providers:</strong> With trusted third-party service providers (like Razorpay for payments)</li>
-              <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
-              <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
-              <li><strong>Consent:</strong> With your explicit consent for specific purposes</li>
-            </ul>
           </section>
 
           <section className="space-y-4">
@@ -128,26 +122,19 @@ const PrivacyPolicy = () => {
               <li><strong>IIFL:</strong> For brokerage partnership services</li>
             </ul>
             <p className="text-sm sm:text-base">
-              These services have their own privacy policies which we encourage you to review.
+              We are not responsible for privacy practices on third-party websites linked on our platform.
             </p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">9. International Data Transfers</h2>
-            <p className="text-sm sm:text-base">
-              Your information may be transferred to and processed in countries other than India. We ensure appropriate safeguards are in place for such transfers in accordance with applicable data protection laws.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">10. Children's Privacy</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">9. Children's Privacy</h2>
             <p className="text-sm sm:text-base">
               Our services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from children under 18.
             </p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">11. Contact Us</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground">10. Contact Us</h2>
             <p className="text-sm sm:text-base">
               If you have questions about this Privacy Policy or our data practices, please contact us:
             </p>

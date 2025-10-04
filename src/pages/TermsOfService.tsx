@@ -23,7 +23,7 @@ const TermsOfService = () => {
               OptionSellerVardhan provides:
             </p>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
-              <li>Live F&O trading signals and recommendations</li>
+              <li>Live F&O trading signals</li>
               <li>Market analysis and research reports</li>
               <li>Educational content about options trading</li>
               <li>Telegram group access for real-time updates</li>
@@ -52,7 +52,6 @@ const TermsOfService = () => {
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-sm sm:text-base">
               <li>Monthly subscriptions auto-renew unless cancelled</li>
               <li>Yearly subscriptions provide access for 12 months from purchase date</li>
-              <li>Lifetime subscriptions provide access for the lifetime of the service</li>
               <li>Price changes will be communicated 30 days in advance</li>
             </ul>
           </section>
@@ -79,7 +78,10 @@ const TermsOfService = () => {
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">7. Limitation of Liability</h2>
             <p className="text-sm sm:text-base">
-              OptionSellerVardhan shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of our services, including but not limited to trading losses, lost profits, or business interruption.
+              OptionSellerVardhan shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of our services, including trading losses, lost profits, or business interruption.
+            </p>
+            <p className="text-sm sm:text-base">
+              Our max liability is INR 1000/-
             </p>
           </section>
 
@@ -93,7 +95,7 @@ const TermsOfService = () => {
           <section className="space-y-4">
             <h2 className="text-xl sm:text-2xl font-semibold text-foreground">9. SEBI Compliance</h2>
             <p className="text-sm sm:text-base">
-              Our services comply with SEBI (Securities and Exchange Board of India) regulations. We are registered under SEBI Registration No: INH000008705 and maintain all required disclosures and compliance measures.
+              Our services comply with SEBI (Securities and Exchange Board of India) regulations. We are registered under SEBI Registration No: INH00000XXXX and maintain all required disclosures and compliance measures.
             </p>
           </section>
 
